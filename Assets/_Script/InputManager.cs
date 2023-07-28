@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Input manager. We could ponentialy split the Raycast functionality outside of it and add the camera input ehre
+/// to make it more universal and preserve Single Responsibility Rule better
+/// </summary>
 public class InputManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
     private Camera sceneCamera;
 
@@ -15,17 +19,11 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private LayerMask placementLayermask;
 
-    public event Action OnClicked, OnExit;
+    public event Action OnMousePressed, OnMouseReleased, OnCancle, OnUndo;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-            OnClicked?.Invoke();
-        if (Input.GetKeyDown(KeyCode.Escape))
-            OnExit?.Invoke();
-    }
+    public event Action<int> OnRotate;
 
-    public bool IsPointerOverUI() => EventSystem.current.IsPointerOverGameObject();
+    public event Action<bool> OnToggleDelete;
 
     public Vector3 GetSelectedMapPosition()
     {
@@ -39,4 +37,31 @@ public class InputManager : MonoBehaviour
         }
         return lastPosition;
     }
+
+    public bool IsInteractingWithUI()
+        => EventSystem.current.IsPointerOverGameObject();
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OnCancle?.Invoke();
+        if(Input.GetKeyDown(KeyCode.R))
+            OnUndo?.Invoke();
+
+        if (Input.GetMouseButtonDown(0))
+            OnMousePressed?.Invoke();
+        if (Input.GetMouseButtonUp(0))
+            OnMouseReleased?.Invoke();
+        if (Input.GetKeyDown(KeyCode.Z))
+            OnRotate?.Invoke(-1);
+        if (Input.GetKeyDown(KeyCode.X))
+            OnRotate?.Invoke(1);
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+            OnToggleDelete?.Invoke(true);
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+            OnToggleDelete?.Invoke(false);
+    }
+
+
 }
