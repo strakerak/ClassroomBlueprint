@@ -13,6 +13,9 @@ public class StructurePlacer : MonoBehaviour
     List<GameObject> placedObjects = new List<GameObject>();
 
     [SerializeField]
+    private PlacementGridData pd;
+
+    [SerializeField]
     private float scalingDelay = 0.3f, destroyDelay = 0.1f;
     private int GetFreeIndex()
     {
@@ -31,6 +34,33 @@ public class StructurePlacer : MonoBehaviour
         if (index >= 0 && index < placedObjects.Count && placedObjects[index] != null)
             rotationToReturn = placedObjects[index].transform.GetChild(0).rotation;
         return rotationToReturn;
+    }
+
+    public void clearMapper()
+    {
+        Debug.Log("I'm here");
+        for(int i =0; i<placedObjects.Count;i++)
+        {
+            try
+            {
+                //Debug.Log("Found object, deleting");
+                RemoveObjectAt(i);
+            }
+            catch
+            {
+                //Debug.Log("Hey something is wrong, trying to null and go again");
+                placedObjects[i] = null;
+            }
+            finally
+            {
+                //Debug.Log("Testing again");
+                if(placedObjects[i]!=null)
+                    RemoveObjectAt(i);
+                //Debug.Log("Check if success!");
+            }
+        }
+        placedObjects.Clear();
+        //pd.clearMap();
     }
 
 

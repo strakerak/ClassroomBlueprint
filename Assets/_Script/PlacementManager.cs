@@ -44,7 +44,7 @@ public class PlacementManager : MonoBehaviour
     [SerializeField]
     private GameObject destoryPreview;
 
-    public UnityEvent OnExitPlacementMode, OnPlaceConstructionObject, OnPlaceFurnitureObject, OnRemoveObject, OnUndo, OnRotate, OnExitMovement, OnMovementStateEntered;
+    public UnityEvent OnExitPlacementMode, OnPlaceConstructionObject, OnPlaceFurnitureObject, OnRemoveObject, OnUndo, OnRotate, OnExitMovement, OnMovementStateEntered, ClearMapper;
     public UnityEvent<bool> OnToggleUndo;
 
     private void Start()
@@ -97,7 +97,94 @@ public class PlacementManager : MonoBehaviour
         OnRotate?.Invoke();
     }
 
+    public void clearMap()
+    {
+        Debug.Log("Starting removal");
+        for (int i =0;i<10;i++)
+        {
+            structurePlacer.clearMapper();
+            buildingState.CurrentPlacementData.clearMap();
+        }
+        
 
+    }
+
+    public void saveMap()
+    {
+        Debug.Log("Starting Save");
+        buildingState.CurrentPlacementData.saveHandler();
+    }
+
+    public void loadMap()
+    {
+        Debug.Log("Clearing Map");
+        clearMap();
+        Debug.Log("Starting Load");
+        List<string> lines = new List<string>();
+        lines = buildingState.CurrentPlacementData.loadHandler();
+        Debug.Log("Load complete? Now trying to place");
+        for (int i = 0; i < lines.Count(); i++)
+        {
+            Debug.Log(lines[i]);
+            string[] listSplit = lines[i].Split(char.Parse(":"));
+            if (listSplit.Length > 1)
+            {
+                Debug.Log(listSplit[0] + " " + listSplit[1] + " " + listSplit[2]);
+
+                ItemData x = structuresData.GetItemWithID(int.Parse(listSplit[0]));
+
+                listSplit[1] = listSplit[1].Replace("(", "");
+                listSplit[1] = listSplit[1].Replace(")", "");
+
+                string[] vec3s = listSplit[1].Split(char.Parse(","));
+
+                listSplit[2] = listSplit[2].Replace("(", "");
+                listSplit[2] = listSplit[2].Replace(")", "");
+
+                string[] qs = listSplit[2].Split(char.Parse(","));
+
+                Vector3 position = new Vector3(float.Parse(vec3s[0])/2, float.Parse(vec3s[1])/2, float.Parse(vec3s[2])/2);
+                Vector3Int positionint = new Vector3Int(int.Parse(vec3s[0]), int.Parse(vec3s[1]), int.Parse(vec3s[2]));
+                Quaternion rotation = new Quaternion(float.Parse(qs[0]), float.Parse(qs[1]), float.Parse(qs[2]), float.Parse(qs[3]));
+
+
+
+
+                if (x.objectPlacementType.IsEdgePlacement())
+                {
+                    Debug.Log("Edge");
+                    Debug.Log(x.name);
+                    int objectIndex = structurePlacer.PlaceStructure(x.prefab, position, rotation, 0);
+                    try
+                    {
+                        buildingState.CurrentPlacementData.AddEdgeObject(objectIndex, x.ID, positionint, x.size, 0, rotation);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.Log(e);
+                    }
+
+                }
+                else
+                {
+                    Debug.Log("Cell");
+                    Debug.Log(x.name);
+                    int objectIndex = structurePlacer.PlaceStructure(x.prefab, position, rotation, 0);
+                    try
+                    {
+                        buildingState.CurrentPlacementData.AddCellObject(objectIndex, x.ID, positionint, x.size, 0, rotation);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.Log(e);
+                    }
+
+                }
+                
+            }
+               
+        }
+    }
 
     /// <summary>
     /// Created anf invokes a Command responsible for placing objects and undoing placement
@@ -266,12 +353,13 @@ public class PlacementManager : MonoBehaviour
             if (itemData.objectPlacementType.IsEdgePlacement())
             {
                 int objectIndex = structurePlacer.PlaceStructure(itemData.prefab, selectionResult.selectedPositions[i], selectionResult.selectedPositionsObjectRotation[i], 0);
-                placementData.AddEdgeObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y));
+                placementData.AddEdgeObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y), selectionResult.selectedPositionGridCheckRotation[0]);
             }
             else
             {
                 int objectIndex = structurePlacer.PlaceStructure(itemData.prefab, selectionResult.selectedPositions[i], selectionResult.selectedPositionsObjectRotation[i], 0);
-                placementData.AddCellObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y));
+                placementData.AddCellObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y), selectionResult.selectedPositionsObjectRotation[0]);
+                Debug.Log("ARRAY ROTATION IS" + selectionResult.selectedPositionsObjectRotation[0]);
             }
 
         }

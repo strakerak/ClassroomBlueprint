@@ -154,3 +154,19 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 7057042017470530667, guid: 6afb04d79bd334c42ac1f3e670a82e39,
       type: 3}
+  - name: FileCabinet
+    ID: 18
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 4344590435354947618, guid: cdbd736715e0fe24b93ca8518f700ded,
+      type: 3}
+    previewObject: {fileID: 4344590435354947618, guid: cdbd736715e0fe24b93ca8518f700ded,
+      type: 3}
+  - name: Nuker
+    ID: 100
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 4428052050468720457, guid: 691a946a0bb191b4da4ca352f540a8e0,
+      type: 3}
+    previewObject: {fileID: 4428052050468720457, guid: 691a946a0bb191b4da4ca352f540a8e0,
+      type: 3}

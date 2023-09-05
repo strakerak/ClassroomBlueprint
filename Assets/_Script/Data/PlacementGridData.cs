@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ using UnityEngine;
 /// "Position already occupied" error. At the same time we can check if 
 /// an object is already there or remove only floor tiles without the furniture.
 /// </summary>
-public class PlacementGridData
+public class PlacementGridData : MonoBehaviour
 {
     Dictionary<Vector3Int, PlacedCellObjectData> gridCellsDictionary;
     Dictionary<Edge, PlacedEdgeObjectData> gridEdgesDictionary;
@@ -217,26 +218,186 @@ public class PlacementGridData
         return positions;
     }
 
-    public void AddCellObject(int index, int ID, Vector3Int currentTilePosition, Vector2Int objectSize, int rotation)
+
+    
+
+    public void saveHandler()
     {
-        List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
-        PlacedCellObjectData data = new(index, ID, positionsToOccupy, currentTilePosition);
-        foreach (Vector3Int pos in positionsToOccupy)
+        //should get the string you want to name it, then the data to save by gathering all the info
+        saveData("helloHome");
+    }
+
+    public List<string> loadHandler()
+    {
+        //Just takes the name you want and loads it
+        List<string> lines = new List<string>();
+        lines = loadData("helloHome");
+        return lines;
+    }
+
+    public void saveData(string saveName)
+    {
+        string saveStr = "";
+
+        for(int i =0;i<gridCellsDictionary.Count();i++)
         {
-            //Debug.Log($"Placing object at {pos}");
-            gridCellsDictionary.Add(pos, data);
+            var post = gridCellsDictionary.ElementAt(i);
+            var pos = post.Key;
+            saveStr += $"{gridCellsDictionary[pos].structureID}:{gridCellsDictionary[pos].origin}:{gridCellsDictionary[pos].rot}\n";
+            Debug.Log(saveStr);
+        }
+
+        for(int i = 0;i<gridEdgesDictionary.Count();i++)
+        {
+            var post = gridEdgesDictionary.ElementAt(i);
+            var pos = post.Key;
+            saveStr += $"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n";
+            Debug.Log(saveStr + " WALLS AND EDGES");
+            Debug.Log($"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n");
+        }
+
+        if(WriteToFile(saveName,saveStr))
+        {
+            Debug.Log("Save success!");
+        }
+
+    }
+
+    public List<string> loadData(string saveName)
+    {
+        string data = "";
+        List<string> lines = new List<string>();
+        if (ReadFromFile(saveName, out data))
+        {
+            Debug.Log("Data loaded!");
+            Debug.Log(data);
+
+            //Go line by line
+            string txt = "";
+            for(int i = 0;i<data.Length;i++)
+            {
+                if (data[i] == '\n')
+                {
+                    lines.Add(txt);
+                    txt = "";
+                }
+                else
+                {
+                    txt += data[i];
+                }
+            }
+            lines.Add(txt);
+            txt = "";
+        }
+        return lines;
+    }
+
+    private bool WriteToFile(string name, string content)
+    {
+        string path = "Assets/SaveFiles/";
+        
+        try
+        {
+            File.WriteAllText(path+name, content);
+            return true;
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("Error saving to a file " +e.Message);
+        }
+        return false;
+    }
+
+    private bool ReadFromFile(string name, out string content)
+    {
+        string path = "Assets/SaveFiles/";
+
+        try
+        {
+            content = File.ReadAllText(path+name);
+            Debug.Log(content);
+            return true;
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("Error: Unable to load file " + e.Message);
+            content = "";
+        }
+        return false;
+    }
+
+    public void clearMap()
+    {
+        Debug.Log("In function");
+        Debug.Log(gridCellsDictionary.Count());
+        for(int i = 0; i<gridCellsDictionary.Count(); i++)
+        {
+            Debug.Log(i);
+            var post = gridCellsDictionary.ElementAt(i);
+            var pos = post.Key;
+            foreach (var item in gridCellsDictionary[pos].PositionsOccupied)
+                gridCellsDictionary.Remove(item);
+        }
+        for(int i = 0;i<gridEdgesDictionary.Count();i++)
+        {
+            Debug.Log(i + "Wall");
+            var post = gridEdgesDictionary.ElementAt(i);
+            var pos = post.Key;
+            foreach (var item in gridEdgesDictionary[pos].PositionsOccupied)
+                gridEdgesDictionary.Remove(item);
+        }
+        GameObject sp = GameObject.Find("StructurePlacer");
+        if (sp != null)
+        {
+            foreach (Transform child in sp.transform)
+            {
+                Destroy(child.gameObject);
+                
+            }
         }
     }
 
-    public void AddEdgeObject(int index, int ID, Vector3Int currentTilePosition, Vector2Int objectSize, int rotation)
+    public void AddCellObject(int index, int ID, Vector3Int currentTilePosition, Vector2Int objectSize, int rotation, Quaternion rot)
+    {
+        List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
+        PlacedCellObjectData data = new(index, ID, positionsToOccupy, currentTilePosition, rot);
+        foreach (Vector3Int pos in positionsToOccupy)
+        {
+            Debug.Log($"Placing object at {pos}");
+            gridCellsDictionary.Add(pos, data);
+            for (int i = 0; i < positionsToOccupy.Count(); i++)
+            {
+                Debug.Log($"Here is the {gridCellsDictionary[pos].PositionsOccupied.Count()}, {gridCellsDictionary[pos].gameObjectIndex}, {gridCellsDictionary[pos].structureID}, {gridCellsDictionary[pos].origin}");
+            }
+        }
+        for(int i =0;i<gridCellsDictionary.Count();i++)
+        {
+            var post = gridCellsDictionary.ElementAt(i);
+            var pos = post.Key;
+            Debug.Log($"Here {gridCellsDictionary.Count()} yo {post.Key} yo is the {gridCellsDictionary[pos].PositionsOccupied.Count()}, {gridCellsDictionary[pos].gameObjectIndex}, {gridCellsDictionary[pos].structureID}, {gridCellsDictionary[pos].origin}, {gridCellsDictionary[pos].rot}");
+        }
+        //Debug.Log(currentTilePosition);
+        //Debug.Log(rotation);
+        //Debug.Log("QUICK PLUS QUACK" + rot + " " + rot[0] + " " + rot[1]+ " " + rot[2]+ " " + rot[3]);
+        
+
+        //saveHandler();
+        //clearMap();
+
+    }
+
+
+    public void AddEdgeObject(int index, int ID, Vector3Int currentTilePosition, Vector2Int objectSize, int rotation, Quaternion rot)
     {
         List<Edge> edgesToOccupy = GetEdgePositions(currentTilePosition, objectSize, rotation);
-        PlacedEdgeObjectData data = new(index, ID, edgesToOccupy, currentTilePosition);
+        PlacedEdgeObjectData data = new(index, ID, edgesToOccupy, currentTilePosition, rot);
         foreach (Edge pos in edgesToOccupy)
         {
             //Debug.Log($"Placing object at {pos}");
             gridEdgesDictionary.Add(pos, data);
         }
+        //Debug.Log("QUICK PLUS QUACK" + rot + " " + rot[0] + " " + rot[1] + " " + rot[2] + " " + rot[3]);
+        //clearMap();
     }
 
     internal bool IsCellObjectAt(Vector3Int currentTilePosition)

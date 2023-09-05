@@ -8,13 +8,15 @@ public class PlacedCellObjectData
     public IEnumerable<Vector3Int> PositionsOccupied { get; private set; }
     public int gameObjectIndex, structureID;
     public Vector3Int origin;
+    public Quaternion rot;
 
-    public PlacedCellObjectData(int gameObjectIndex,int structureID, IEnumerable<Vector3Int> positionsOccupied, Vector3Int origin)
+    public PlacedCellObjectData(int gameObjectIndex,int structureID, IEnumerable<Vector3Int> positionsOccupied, Vector3Int origin, Quaternion rot)
     {
         this.gameObjectIndex = gameObjectIndex;
         this.PositionsOccupied = positionsOccupied;
         this.structureID = structureID;
         this.origin = origin;
+        this.rot = rot;
     }
 
 }

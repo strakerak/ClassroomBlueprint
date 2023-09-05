@@ -28,4 +28,5 @@ public class UIPlacementController : MonoBehaviour
 
     public void EnterMovementState()
         => OnMovementStateEntered?.Invoke();
+
 }
