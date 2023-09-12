@@ -170,3 +170,11 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 4428052050468720457, guid: 691a946a0bb191b4da4ca352f540a8e0,
       type: 3}
+  - name: FPV
+    ID: 99
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 4428052050468720457, guid: 46e738557837e33458e897ca29753192,
+      type: 3}
+    previewObject: {fileID: 4428052050468720457, guid: c0d0d035048cb0a40917742a72a88d63,
+      type: 3}

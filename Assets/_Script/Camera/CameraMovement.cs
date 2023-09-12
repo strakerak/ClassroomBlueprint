@@ -33,6 +33,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private int constraintXMax = 5, constraintXMin = -5, constraintZMax = 5, constraintZMin = -5;
 
+    [SerializeField]
+    CinemachineVirtualCamera firstPersonCam;
+
+    public bool first = false;
+
     private void Start()
     {
         //We need to use this Cinemachine specific method to access Transposer
@@ -74,6 +79,27 @@ public class CameraMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime / movementTime);
         cameraTransposer.m_FollowOffset = Vector3.Lerp(cameraTransposer.m_FollowOffset, newZoom, Time.deltaTime / movementTime);
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (first==false)
+            {
+                first = true;
+                //switch to first person
+            }
+            else
+            {
+                first = false;
+                //switch back to third
+            }
+        }
+
+        if(first == true)
+        {
+            first = first;
+            //implement first person controls 
+        }
+
 
     }
 

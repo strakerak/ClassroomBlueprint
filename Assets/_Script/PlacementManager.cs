@@ -348,6 +348,14 @@ public class PlacementManager : MonoBehaviour
     /// <param name="isInWallObject"></param>
     public void PlaceStructureAt(SelectionResult selectionResult, PlacementGridData placementData, ItemData itemData)
     {
+        if(itemData.ID == 99 && GameObject.Find("FPVParent(Clone)") != null)
+        {
+            {
+                Debug.Log("get fukd cameraman");
+                return;
+            }
+            
+        }
         for (int i = 0; i < selectionResult.selectedGridPositions.Count; i++)
         {
             if (itemData.objectPlacementType.IsEdgePlacement())

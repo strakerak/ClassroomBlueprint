@@ -237,30 +237,54 @@ public class PlacementGridData : MonoBehaviour
 
     public void saveData(string saveName)
     {
-        string saveStr = "";
+        string saveWallStr = "";
+        string saveCellStr = "";
 
-        for(int i =0;i<gridCellsDictionary.Count();i++)
-        {
-            var post = gridCellsDictionary.ElementAt(i);
-            var pos = post.Key;
-            saveStr += $"{gridCellsDictionary[pos].structureID}:{gridCellsDictionary[pos].origin}:{gridCellsDictionary[pos].rot}\n";
-            Debug.Log(saveStr);
-        }
-
-        for(int i = 0;i<gridEdgesDictionary.Count();i++)
+        for (int i = 0; i < gridEdgesDictionary.Count(); i++)
         {
             var post = gridEdgesDictionary.ElementAt(i);
             var pos = post.Key;
-            saveStr += $"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n";
-            Debug.Log(saveStr + " WALLS AND EDGES");
+            saveWallStr += $"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n";
+            Debug.Log(saveWallStr + " WALLS AND EDGES");
             Debug.Log($"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n");
         }
 
+        for (int j =0;j<gridCellsDictionary.Count();j++)
+        {
+            var posta = gridCellsDictionary.ElementAt(j);
+            var posa = posta.Key;
+            saveCellStr += $"{gridCellsDictionary[posa].structureID}:{gridCellsDictionary[posa].origin}:{gridCellsDictionary[posa].rot}\n";
+            Debug.Log(saveCellStr);
+        }
+
+        string saveStr = saveWallStr + saveCellStr;
         if(WriteToFile(saveName,saveStr))
         {
             Debug.Log("Save success!");
         }
 
+    }
+
+    public void printGrid()
+    {
+        for (int i = 0; i < gridEdgesDictionary.Count(); i++)
+        {
+            string saveWallStr = "";
+            var post = gridEdgesDictionary.ElementAt(i);
+            var pos = post.Key;
+            saveWallStr += $"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n";
+            Debug.Log(saveWallStr + " WALLS AND EDGES");
+            Debug.Log($"{gridEdgesDictionary[pos].structureID}:{gridEdgesDictionary[pos].origin}:{gridEdgesDictionary[pos].rot}\n");
+        }
+
+        for (int j = 0; j < gridCellsDictionary.Count(); j++)
+        {
+            string saveCellStr = "";
+            var posta = gridCellsDictionary.ElementAt(j);
+            var posa = posta.Key;
+            saveCellStr += $"{gridCellsDictionary[posa].structureID}:{gridCellsDictionary[posa].origin}:{gridCellsDictionary[posa].rot}\n";
+            Debug.Log(saveCellStr);
+        }
     }
 
     public List<string> loadData(string saveName)
@@ -359,6 +383,11 @@ public class PlacementGridData : MonoBehaviour
 
     public void AddCellObject(int index, int ID, Vector3Int currentTilePosition, Vector2Int objectSize, int rotation, Quaternion rot)
     {
+        if(ID == 99 && GameObject.Find("FPVParent(Clone") != null)
+        {
+            Debug.Log("no no no");
+            return;
+        }
         List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
         PlacedCellObjectData data = new(index, ID, positionsToOccupy, currentTilePosition, rot);
         foreach (Vector3Int pos in positionsToOccupy)
