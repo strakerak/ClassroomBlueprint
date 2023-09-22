@@ -127,6 +127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleTable
       objectReference: {fileID: 0}
+    - target: {fileID: 4431670454091400558, guid: f49b24326c368af4592c7f3e56c100da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b31d0327762eff48b347f07e69f7386, type: 2}
     - target: {fileID: 5508666928164402857, guid: f49b24326c368af4592c7f3e56c100da,
         type: 3}
       propertyPath: m_LocalPosition.x

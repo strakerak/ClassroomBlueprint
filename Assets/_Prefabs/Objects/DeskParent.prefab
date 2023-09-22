@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 142e30cab8e618b41a6988e3ec21a617, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,6 +250,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.2542
       objectReference: {fileID: 0}
+    - target: {fileID: -3477821731311062464, guid: 4a3e4c2941c26e8439bb721d6302e95b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 142e30cab8e618b41a6988e3ec21a617, type: 2}
     - target: {fileID: -511310931620521848, guid: 4a3e4c2941c26e8439bb721d6302e95b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,6 +265,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk
       objectReference: {fileID: 0}
+    - target: {fileID: 4407187375235809858, guid: 4a3e4c2941c26e8439bb721d6302e95b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 142e30cab8e618b41a6988e3ec21a617, type: 2}
     - target: {fileID: 6721992597810065892, guid: 4a3e4c2941c26e8439bb721d6302e95b,
         type: 3}
       propertyPath: m_LocalScale.x
