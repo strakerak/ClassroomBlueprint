@@ -99,7 +99,16 @@ public class PlacementManager : MonoBehaviour
 
     public void clearMap()
     {
-        Debug.Log("Starting removal");
+        Debug.Log("Here's the structures");
+        try
+        {
+            structurePlacer.printList();
+        }
+        catch
+        {
+            Debug.Log("yo why can't we print the objcts yo");
+        }
+
         for (int i =0;i<10;i++)
         {
             structurePlacer.clearMapper();

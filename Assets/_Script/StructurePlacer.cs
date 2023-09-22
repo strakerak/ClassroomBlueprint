@@ -36,6 +36,15 @@ public class StructurePlacer : MonoBehaviour
         return rotationToReturn;
     }
 
+    public void printList()
+    {
+        for (int i = 0; i < placedObjects.Count; i++)
+        {
+            Debug.Log(placedObjects[i]);
+            Debug.Log(placedObjects[i].transform);
+        }
+    }
+
     public void clearMapper()
     {
         Debug.Log("I'm here");
@@ -108,4 +117,6 @@ public class StructurePlacer : MonoBehaviour
                 obj.transform.DOComplete();
         }
     }
+
+    
 }

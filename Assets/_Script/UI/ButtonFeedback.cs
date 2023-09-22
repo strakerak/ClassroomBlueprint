@@ -43,14 +43,14 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         selected = false;
         button.image.color = defaultColor;
-        button.transform.localScale = Vector3.one;
+        //button.transform.localScale = Vector3.one;
         //button.image.DOColor(defaultColor, fadeDuration);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         button.image.DOColor(highlightColor, fadeDuration);
-        transform.DOScale(scaleUpValue, fadeDuration);
+        //transform.DOScale(scaleUpValue, fadeDuration);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -58,7 +58,7 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (selected)
             return;
         button.image.DOColor(defaultColor, fadeDuration);
-        button.transform.DOScale(Vector3.one, fadeDuration);
+        //button.transform.DOScale(Vector3.one, fadeDuration);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -73,7 +73,7 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void ApplyClickedFeedback()
     {
         button.image.DOColor(clickedColor, fadeDuration);
-        button.transform.DOScale(Vector3.one, fadeDuration);
+        //button.transform.DOScale(Vector3.one, fadeDuration);
         selected = true;
     }
 
