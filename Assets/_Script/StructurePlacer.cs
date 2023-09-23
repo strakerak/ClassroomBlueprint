@@ -13,6 +13,9 @@ public class StructurePlacer : MonoBehaviour
     List<GameObject> placedObjects = new List<GameObject>();
 
     [SerializeField]
+    private ItemDataBaseSO structuresData;
+
+    [SerializeField]
     private PlacementGridData pd;
 
     [SerializeField]
@@ -36,13 +39,31 @@ public class StructurePlacer : MonoBehaviour
         return rotationToReturn;
     }
 
-    public void printList()
+    public string printList()
     {
+        string saveList = "";
+
         for (int i = 0; i < placedObjects.Count; i++)
         {
-            Debug.Log(placedObjects[i]);
-            Debug.Log(placedObjects[i].transform);
+            string name = placedObjects[i].name;
+            string truncname = name.Remove(name.Length - 7);
+            ItemData itemData = structuresData.GetItemWithName(truncname);
+            if (itemData == null)
+            {
+                Debug.LogError($"No idem with id {itemData}");
+            }
+            else
+            {
+                Debug.Log($"Found something, is it {itemData.ID}");
+            }
+
+
+            string test = (itemData.ID.ToString() + ":" + placedObjects[i].transform.position + ":" + placedObjects[i].transform.GetChild(0).rotation);
+            Debug.Log(test);
+            saveList += test + "\n";
         }
+
+        return saveList;
     }
 
     public void clearMapper()

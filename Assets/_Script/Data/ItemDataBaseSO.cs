@@ -18,6 +18,11 @@ public class ItemDataBaseSO : ScriptableObject
         return structures.FirstOrDefault(structureData => structureData.ID == id);
     }
 
+    public ItemData GetItemWithName(string name)
+    {
+        return structures.FirstOrDefault(structuresData => structuresData.name == name);
+    }
+
     /// <summary>
     /// Valudates ID of the objects to prevent duplicates
     /// </summary>

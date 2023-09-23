@@ -668,8 +668,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2091932983}
-        m_TargetAssemblyTypeName: PlacementManager, Assembly-CSharp
+      - m_Target: {fileID: 282171882}
+        m_TargetAssemblyTypeName: SaveAndLoad, Assembly-CSharp
         m_MethodName: loadMap
         m_Mode: 1
         m_Arguments:
@@ -1161,6 +1161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 282171881}
+  - component: {fileID: 282171882}
   m_Layer: 0
   m_Name: BuildingSystem
   m_TagString: Untagged
@@ -1190,6 +1191,22 @@ Transform:
   - {fileID: 645936932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &282171882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282171880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a1586c7b634048999b4980f89fc6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structurePlacer: {fileID: 1692327133}
+  pm: {fileID: 2091932983}
+  structuresData: {fileID: 11400000, guid: d87f57f55cddf1043bd65610afb7f9c7, type: 2}
+  saveName: helloHome
 --- !u!1 &285413560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,8 +3323,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2091932983}
-        m_TargetAssemblyTypeName: PlacementManager, Assembly-CSharp
+      - m_Target: {fileID: 282171882}
+        m_TargetAssemblyTypeName: SaveAndLoad, Assembly-CSharp
         m_MethodName: saveMap
         m_Mode: 1
         m_Arguments:
@@ -3708,8 +3725,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2091932983}
-        m_TargetAssemblyTypeName: PlacementManager, Assembly-CSharp
+      - m_Target: {fileID: 282171882}
+        m_TargetAssemblyTypeName: SaveAndLoad, Assembly-CSharp
         m_MethodName: clearMap
         m_Mode: 1
         m_Arguments:
@@ -7037,6 +7054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedObjects: []
+  structuresData: {fileID: 11400000, guid: d87f57f55cddf1043bd65610afb7f9c7, type: 2}
   pd: {fileID: 2091932985}
   scalingDelay: 0.3
   destroyDelay: 0.1
