@@ -91,8 +91,6 @@ public static class PlacementTypeExtensions
         {
             PlacementType.Wall => true,
             PlacementType.InWalls => true,
-            PlacementType.FreePlacedObject => true,
-            PlacementType.NearWallObject => true,
             _ => false
         };
     public static bool IsObjectPlacement(this PlacementType placementType)
@@ -100,8 +98,6 @@ public static class PlacementTypeExtensions
     {
         PlacementType.FreePlacedObject => true,
         PlacementType.NearWallObject => true,
-        PlacementType.Wall => true,
-        PlacementType.InWalls => true,
         _ => false
     };
 }

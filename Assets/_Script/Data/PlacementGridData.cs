@@ -258,6 +258,8 @@ public class PlacementGridData : MonoBehaviour
             Debug.Log("no no no");
             return;
         }
+
+        Debug.Log("Lets get this add cell object party started");
         List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
         PlacedCellObjectData data = new(index, ID, positionsToOccupy, currentTilePosition, rot);
         foreach (Vector3Int pos in positionsToOccupy)
@@ -288,6 +290,7 @@ public class PlacementGridData : MonoBehaviour
 
     public void AddEdgeObject(int index, int ID, Vector3Int currentTilePosition, Vector2Int objectSize, int rotation, Quaternion rot)
     {
+        Debug.Log("Let's get this add edge object party started");
         List<Edge> edgesToOccupy = GetEdgePositions(currentTilePosition, objectSize, rotation);
         PlacedEdgeObjectData data = new(index, ID, edgesToOccupy, currentTilePosition, rot);
         foreach (Edge pos in edgesToOccupy)

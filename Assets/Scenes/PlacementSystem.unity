@@ -1162,6 +1162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 282171881}
   - component: {fileID: 282171882}
+  - component: {fileID: 282171883}
   m_Layer: 0
   m_Name: BuildingSystem
   m_TagString: Untagged
@@ -1206,7 +1207,20 @@ MonoBehaviour:
   structurePlacer: {fileID: 1692327133}
   pm: {fileID: 2091932983}
   structuresData: {fileID: 11400000, guid: d87f57f55cddf1043bd65610afb7f9c7, type: 2}
+  pgd: {fileID: 282171883}
   saveName: helloHome
+--- !u!114 &282171883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282171880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7cae15722c5c547bc198c09fbf3859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285413560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4574,7 +4588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913320101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9017,6 +9031,7 @@ MonoBehaviour:
   removeStateFrame: {fileID: 485100976}
   destoryPreview: {fileID: 9179937301927065953, guid: 851c3ab931b411b4d9d87aef6493567d,
     type: 3}
+  pgd: {fileID: 0}
   OnExitPlacementMode:
     m_PersistentCalls:
       m_Calls:

@@ -44,6 +44,9 @@ public class PlacementManager : MonoBehaviour
     [SerializeField]
     private GameObject destoryPreview;
 
+    [SerializeField]
+    public PlacementGridData pgd;
+
     public UnityEvent OnExitPlacementMode, OnPlaceConstructionObject, OnPlaceFurnitureObject, OnRemoveObject, OnUndo, OnRotate, OnExitMovement, OnMovementStateEntered, ClearMapper;
     public UnityEvent<bool> OnToggleUndo;
 
@@ -112,7 +115,15 @@ public class PlacementManager : MonoBehaviour
         for (int i =0;i<10;i++)
         {
             structurePlacer.clearMapper();
-            buildingState.CurrentPlacementData.clearMap();
+            try
+            {
+                buildingState.CurrentPlacementData.clearMap();
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+            
         }
         
 
@@ -290,15 +301,20 @@ public class PlacementManager : MonoBehaviour
             }
             
         }
+
+        Debug.Log("Let's get this placestructureat party started!");
         for (int i = 0; i < selectionResult.selectedGridPositions.Count; i++)
         {
+            Debug.Log(i);
             if (itemData.objectPlacementType.IsEdgePlacement())
             {
+                Debug.Log("This is an edge object");
                 int objectIndex = structurePlacer.PlaceStructure(itemData.prefab, selectionResult.selectedPositions[i], selectionResult.selectedPositionsObjectRotation[i], 0);
                 placementData.AddEdgeObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y), selectionResult.selectedPositionGridCheckRotation[0]);
             }
             else
             {
+                Debug.Log("This is a cell object");
                 int objectIndex = structurePlacer.PlaceStructure(itemData.prefab, selectionResult.selectedPositions[i], selectionResult.selectedPositionsObjectRotation[i], 0);
                 placementData.AddCellObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y), selectionResult.selectedPositionsObjectRotation[0]);
                 Debug.Log("ARRAY ROTATION IS" + selectionResult.selectedPositionsObjectRotation[0]);
