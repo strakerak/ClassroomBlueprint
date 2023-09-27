@@ -221,7 +221,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1138790745, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: 6a2959be8fea35a4e8cc50ae8574b8fa,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -735,7 +735,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -954618374, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: d25c6f21d55d6bd43bcc85251c4d1908,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -1268,6 +1268,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 545494489}
     m_Modifications:
+    - target: {fileID: 5115172719154774670, guid: f86787fd24c00624ca4d18d82c994d50,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5115172719154774670, guid: f86787fd24c00624ca4d18d82c994d50,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b596fe373006364ba5214fbf5e5cef4,
+        type: 3}
     - target: {fileID: 5722324323817897126, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_Name
@@ -1277,7 +1288,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1709481322, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: 5b596fe373006364ba5214fbf5e5cef4,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -1542,7 +1553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2835,7 +2846,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -762706496, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: 5ba1f9fa035c1df4eb47f0293299b941,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -3806,7 +3817,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1482352191, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: 9ae63b611c7735b49b5930bf47aa60a3,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -4588,7 +4599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913320101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7783,7 +7794,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -801976021, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: 5b67bf09951517b43986f9e3cefb1826,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -9376,7 +9387,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 998515307, guid: 2d537970ddc5d2c48a48dc04285878e2,
+      objectReference: {fileID: 21300000, guid: 64b4a950c21f6424b8cfb25c4d556312,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
