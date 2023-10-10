@@ -39,7 +39,7 @@ public class SaveAndLoad : MonoBehaviour
 
     private bool WriteToFile(string name, string content)
     {
-        string path = "Assets/SaveFiles/";
+        string path = "SaveFiles/";
 
         try
         {
@@ -60,6 +60,7 @@ public class SaveAndLoad : MonoBehaviour
         clearMap();
         Debug.Log("Starting Load");
         List<string> lines = new List<string>();
+        saveName = "defaulto";
         lines = loadData(saveName);
         Debug.Log("Load complete? Now trying to place");
         for (int i = 0; i < lines.Count; i++)
@@ -178,7 +179,7 @@ public class SaveAndLoad : MonoBehaviour
 
     private bool ReadFromFile(string name, out string content)
     {
-        string path = "Assets/SaveFiles/";
+        string path = "SaveFiles/";
 
         try
         {
@@ -198,7 +199,5 @@ public class SaveAndLoad : MonoBehaviour
     {
         structurePlacer.clearMapper();
         pm.clearMap();
-
-
     }
 }

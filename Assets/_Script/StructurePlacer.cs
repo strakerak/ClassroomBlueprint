@@ -45,22 +45,25 @@ public class StructurePlacer : MonoBehaviour
 
         for (int i = 0; i < placedObjects.Count; i++)
         {
-            string name = placedObjects[i].name;
-            string truncname = name.Remove(name.Length - 7);
-            ItemData itemData = structuresData.GetItemWithName(truncname);
-            if (itemData == null)
+            if (placedObjects[i] != null)
             {
-                Debug.LogError($"No idem with id {itemData}");
-            }
-            else
-            {
-                Debug.Log($"Found something, is it {itemData.ID}");
-            }
+                string name = placedObjects[i].name;
+                string truncname = name.Remove(name.Length - 7);
+                ItemData itemData = structuresData.GetItemWithName(truncname);
+                if (itemData == null)
+                {
+                    Debug.LogError($"No idem with id {itemData}");
+                }
+                else
+                {
+                    Debug.Log($"Found something, is it {itemData.ID}");
+                }
 
 
-            string test = (itemData.ID.ToString() + ":" + placedObjects[i].transform.position + ":" + placedObjects[i].transform.GetChild(0).rotation);
-            Debug.Log(test);
-            saveList += test + "\n";
+                string test = (itemData.ID.ToString() + ":" + placedObjects[i].transform.position + ":" + placedObjects[i].transform.GetChild(0).rotation);
+                Debug.Log(test);
+                saveList += test + "\n";
+            }
         }
 
         return saveList;
