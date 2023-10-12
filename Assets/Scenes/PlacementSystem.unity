@@ -1553,7 +1553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4599,7 +4599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913320101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -0, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9043,6 +9043,7 @@ MonoBehaviour:
   destoryPreview: {fileID: 9179937301927065953, guid: 851c3ab931b411b4d9d87aef6493567d,
     type: 3}
   pgd: {fileID: 0}
+  sv: {fileID: 282171882}
   OnExitPlacementMode:
     m_PersistentCalls:
       m_Calls:

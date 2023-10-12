@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SaveAndLoad : MonoBehaviour
 {
@@ -57,7 +59,6 @@ public class SaveAndLoad : MonoBehaviour
     public void loadMap()
     {
         Debug.Log("Clearing Map");
-        clearMap();
         Debug.Log("Starting Load");
         List<string> lines = new List<string>();
         saveName = "defaulto";
@@ -199,5 +200,6 @@ public class SaveAndLoad : MonoBehaviour
     {
         structurePlacer.clearMapper();
         pm.clearMap();
+        SceneManager.LoadScene("PlacementSystem");
     }
 }

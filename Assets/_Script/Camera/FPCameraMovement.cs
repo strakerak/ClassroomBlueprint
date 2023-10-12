@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+
+
+using Debug = UnityEngine.Debug;
 
 [RequireComponent(typeof(CharacterController))]
 public class FPCameraMovement : MonoBehaviour
@@ -14,7 +18,7 @@ public class FPCameraMovement : MonoBehaviour
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
-    public float jumpPower = 7f;
+    //public float jumpPower = 7f;
     public float gravity = 10f;
 
 
@@ -27,12 +31,13 @@ public class FPCameraMovement : MonoBehaviour
 
     CharacterController characterController;
 
-    public bool canMove = true;
+    public bool canMove = false;
     // Update is called once per frame
 
 
     void Start()
     {
+        canMove = false;
         characterController = GetComponent<CharacterController>();
 
     }
@@ -46,7 +51,7 @@ public class FPCameraMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && GameObject.Find("FPVParent(Clone)") != null)
         {
-            Debug.Log("Camera work");
+            /*Debug.Log("Camera work");
             GameObject go = GameObject.Find("FPVParent(Clone)");
             GameObject mc = GameObject.Find("GeneralObjects");
             if (first == false)
@@ -57,6 +62,7 @@ public class FPCameraMovement : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 first = true;
+                canMove = true;
             }
             else
             {
@@ -66,7 +72,9 @@ public class FPCameraMovement : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 first = false;
-            }
+                canMove = false;
+            }*/
+            Debug.Log("Nuh uh uh!");
         }
 
         if (first == true)
@@ -81,19 +89,6 @@ public class FPCameraMovement : MonoBehaviour
             float movementDirectionY = moveDirection.y;
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-            if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
-            {
-                moveDirection.y = jumpPower;
-            }
-            else
-            {
-                moveDirection.y = movementDirectionY;
-            }
-
-            if (!characterController.isGrounded)
-            {
-                moveDirection.y -= gravity * Time.deltaTime;
-            }
 
             characterController.Move(moveDirection * Time.deltaTime);
 
@@ -104,7 +99,6 @@ public class FPCameraMovement : MonoBehaviour
                 playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
             }
-
 
 
 

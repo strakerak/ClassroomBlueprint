@@ -47,6 +47,9 @@ public class PlacementManager : MonoBehaviour
     [SerializeField]
     public PlacementGridData pgd;
 
+    [SerializeField]
+    public SaveAndLoad sv;
+
     public UnityEvent OnExitPlacementMode, OnPlaceConstructionObject, OnPlaceFurnitureObject, OnRemoveObject, OnUndo, OnRotate, OnExitMovement, OnMovementStateEntered, ClearMapper;
     public UnityEvent<bool> OnToggleUndo;
 
@@ -57,6 +60,9 @@ public class PlacementManager : MonoBehaviour
 
         input.OnToggleDelete += HandleDeleteAction;
         input.OnCancle += () => OnExitPlacementMode?.Invoke();
+
+        sv.loadMap();
+        
     }
 
     /// <summary>
