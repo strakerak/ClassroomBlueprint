@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 
 public class SaveAndLoad : MonoBehaviour
@@ -21,6 +23,15 @@ public class SaveAndLoad : MonoBehaviour
     [SerializeField]
     public PlacementGridData pgd;
 
+    [SerializeField]
+    public GameObject saveCanvas;
+
+    [SerializeField]
+    public GameObject saveNameCanvas;
+
+    [SerializeField]
+    public TMP_InputField saveNameText;
+
     BuildingState buildingState;
 
     public string saveName = "helloHome";
@@ -35,7 +46,8 @@ public class SaveAndLoad : MonoBehaviour
 
         if (WriteToFile(saveName, saveList))
         {
-            Debug.Log("Save success!");
+            saveCanvas.SetActive(true);
+            Debug.Log("Save success! Saved as " + saveName);
         }
     }
 
@@ -55,14 +67,34 @@ public class SaveAndLoad : MonoBehaviour
         return false;
     }
 
+    public void startSave()
+    {
+        saveNameCanvas.SetActive(true);
+    }
+
+    public void nameSaver()
+    {
+        saveName = saveNameText.text;
+        setSaveName();
+    }
+
+    public void setSaveName()
+    {
+        saveNameCanvas.SetActive(false);
+        saveMap();
+    }
+
+    public void okaydone()
+    {
+        saveCanvas.SetActive(false);
+    }
     
     public void loadMap()
     {
         Debug.Log("Clearing Map");
         Debug.Log("Starting Load");
         List<string> lines = new List<string>();
-        saveName = "defaulto";
-        lines = loadData(saveName);
+        lines = loadData("defaulto");
         Debug.Log("Load complete? Now trying to place");
         for (int i = 0; i < lines.Count; i++)
         {
