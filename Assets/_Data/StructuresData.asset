@@ -116,7 +116,7 @@ MonoBehaviour:
       type: 3}
   - name: DeskParent
     ID: 13
-    size: {x: 2, y: 1}
+    size: {x: 3, y: 1}
     objectPlacementType: 5
     prefab: {fileID: 3265483231859302708, guid: 09362289c70e84246ae4c36491feb8a5,
       type: 3}
@@ -180,11 +180,27 @@ MonoBehaviour:
       type: 3}
   - name: WhiteboardParent
     ID: 21
-    size: {x: 1, y: 4}
+    size: {x: 4, y: 1}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: 3d82b7d6a6638ff4296a654e08920336,
       type: 3}
     previewObject: {fileID: 6279952519052679450, guid: 3d82b7d6a6638ff4296a654e08920336,
+      type: 3}
+  - name: ArtStationParent
+    ID: 22
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 7057042017470530667, guid: 1342e4adfa7b6b54983bb82751565139,
+      type: 3}
+    previewObject: {fileID: 7057042017470530667, guid: 1342e4adfa7b6b54983bb82751565139,
+      type: 3}
+  - name: PlaystationParent
+    ID: 23
+    size: {x: 2, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 3265483231859302708, guid: 90905f14f8a63df4ab0cde65634b889c,
+      type: 3}
+    previewObject: {fileID: 3265483231859302708, guid: 90905f14f8a63df4ab0cde65634b889c,
       type: 3}
   - name: Nuker
     ID: 100
