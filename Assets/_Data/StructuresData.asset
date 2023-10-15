@@ -202,6 +202,22 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 3265483231859302708, guid: 90905f14f8a63df4ab0cde65634b889c,
       type: 3}
+  - name: PosterParent
+    ID: 24
+    size: {x: 1, y: 2}
+    objectPlacementType: 5
+    prefab: {fileID: 6279952519052679450, guid: b93fa99d7a73d754ebbd798145f15443,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: b93fa99d7a73d754ebbd798145f15443,
+      type: 3}
+  - name: BouncyChairParent
+    ID: 25
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 4428052050468720457, guid: 5aa47eb07ecddeb42876754d9c123928,
+      type: 3}
+    previewObject: {fileID: 4428052050468720457, guid: 5aa47eb07ecddeb42876754d9c123928,
+      type: 3}
   - name: Nuker
     ID: 100
     size: {x: 1, y: 1}

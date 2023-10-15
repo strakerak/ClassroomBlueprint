@@ -229,13 +229,13 @@ PrefabInstance:
     - target: {fileID: 5722324323817897126, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_Name
-      value: Cabinet(KitchenCabinetBtn) (1)
+      value: BouncyChairBtn
       objectReference: {fileID: 0}
     - target: {fileID: 5942182432331709862, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d25c6f21d55d6bd43bcc85251c4d1908,
+      objectReference: {fileID: 21300000, guid: ef7f2558c6148f64dab1f074456cf94f,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 7705855893802810636, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 18
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7705855893802810636, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -2347,7 +2347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: -3e-45, z: 1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6490,7 +6490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913320101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: -3e-45, z: 1e-45, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 1e-45, z: -1e-45, w: 0.92387956}
   m_LocalPosition: {x: -0.36, y: 15, z: -14.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8649,13 +8649,13 @@ PrefabInstance:
     - target: {fileID: 5722324323817897126, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_Name
-      value: RoundTableBtn(Fridge) (1)
+      value: PosterBtn
       objectReference: {fileID: 0}
     - target: {fileID: 5942182432331709862, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5b67bf09951517b43986f9e3cefb1826,
+      objectReference: {fileID: 21300000, guid: 13719875407c2d140ae4a36ae56e34c4,
         type: 3}
     - target: {fileID: 6235872389245422347, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
@@ -8710,7 +8710,7 @@ PrefabInstance:
     - target: {fileID: 7705855893802810636, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 16
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7705855893802810636, guid: f86787fd24c00624ca4d18d82c994d50,
         type: 3}

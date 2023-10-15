@@ -34,7 +34,7 @@ public class SaveAndLoad : MonoBehaviour
 
     BuildingState buildingState;
 
-    public string saveName = "helloHome";
+    public string saveName = "";
 
 
     public void saveMap()
