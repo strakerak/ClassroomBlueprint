@@ -138,10 +138,14 @@ public class FreeObjectPlacementStrategy1 : SelectionStrategy
         }
         else
         {
-            if (currentRotation == 0 || currentRotation == 180)
+            if (currentRotation == 0)
                 valueToReturn = Quaternion.identity;
-            else
+            else if (currentRotation == 90)
                 valueToReturn = Quaternion.Euler(0, 90, 0);
+            else if (currentRotation == 180)
+                valueToReturn = Quaternion.Euler(0, 180, 0);
+            else
+                valueToReturn = Quaternion.Euler(0, 270, 0);
         }
         selectionData.SetObjectRotation(new() { valueToReturn });
         selectionData.SetGridCheckRotation(new() { valueToReturn });

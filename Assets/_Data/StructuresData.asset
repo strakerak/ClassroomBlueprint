@@ -178,6 +178,14 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 3265483231859302708, guid: fa4c041d5d458b64bbb50e5a2d5bf96d,
       type: 3}
+  - name: WhiteboardParent
+    ID: 21
+    size: {x: 1, y: 4}
+    objectPlacementType: 5
+    prefab: {fileID: 6279952519052679450, guid: 3d82b7d6a6638ff4296a654e08920336,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: 3d82b7d6a6638ff4296a654e08920336,
+      type: 3}
   - name: Nuker
     ID: 100
     size: {x: 1, y: 1}
