@@ -31,7 +31,7 @@ public class PlacingObjectsState : BuildingState
         else if (itemData.objectPlacementType == PlacementType.FreePlacedObject)
         {
             currentPlacementData = gridData.ObjectPlacementData;
-            placementSelection = new(new FreeObjectPlacementStrategy(currentPlacementData, gridData.WallPlacementData, gridData.InWallPlacementData, gridManager), selectionData);
+            placementSelection = new(new FreeObjectPlacementStrategy1(currentPlacementData, gridData.WallPlacementData, gridData.InWallPlacementData, gridManager), selectionData);
         }
         else if (itemData.objectPlacementType == PlacementType.NearWallObject)
         {

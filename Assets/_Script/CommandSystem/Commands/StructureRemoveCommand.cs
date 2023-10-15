@@ -108,7 +108,7 @@ public class StructureRemoveCommand : ICommand
 
             foreach (var pos in selectionResult.selectedGridPositions)
             {
-                List<Vector3Int> cellsToCheck = this.placementData.GetCellPositions(pos, itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[0].eulerAngles.y));
+                List<Vector3Int> cellsToCheck = this.placementData.GetCellPositionsNewRotation(pos, itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[0].eulerAngles.y));
                 foreach (var cell in cellsToCheck)
                 {
                     if (this.placementData.IsCellObjectAt(cell) && this.selectionResult.selectedGridPositions.Contains(cell))

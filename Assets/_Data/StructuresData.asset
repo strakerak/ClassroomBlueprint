@@ -170,6 +170,14 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 3493615974341626966, guid: ef343e854338c7f4c8a2d99f6a7bb4c1,
       type: 3}
+  - name: RugParent
+    ID: 20
+    size: {x: 3, y: 3}
+    objectPlacementType: 5
+    prefab: {fileID: 3265483231859302708, guid: fa4c041d5d458b64bbb50e5a2d5bf96d,
+      type: 3}
+    previewObject: {fileID: 3265483231859302708, guid: fa4c041d5d458b64bbb50e5a2d5bf96d,
+      type: 3}
   - name: Nuker
     ID: 100
     size: {x: 1, y: 1}

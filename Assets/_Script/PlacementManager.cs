@@ -102,8 +102,10 @@ public class PlacementManager : MonoBehaviour
 
     private void HandleRotation(int modifier)
     {
+        //Debug.Log(modifier);
         buildingState.HandleRotation(modifier);
         OnRotate?.Invoke();
+        buildingState.HandleSelectionChanged(input.GetSelectedMapPosition());
     }
 
     public void clearMap()
@@ -321,7 +323,20 @@ public class PlacementManager : MonoBehaviour
             else
             {
                 Debug.Log("This is a cell object");
-                int objectIndex = structurePlacer.PlaceStructure(itemData.prefab, selectionResult.selectedPositions[i], selectionResult.selectedPositionsObjectRotation[i], 0);
+                Vector3 modifiedPosition = selectionResult.selectedPositions[i];
+                if (selectionResult.selectedPositionsObjectRotation[0].eulerAngles.y == 90)
+                {
+                    modifiedPosition += new Vector3(0, 0, 0.5f);
+                }
+                else if (selectionResult.selectedPositionsObjectRotation[0].eulerAngles.y == 180)
+                {
+                    modifiedPosition += new Vector3(0.5f, 0, 0.5f);
+                }
+                else if (selectionResult.selectedPositionsObjectRotation[0].eulerAngles.y == 270)
+                {
+                    modifiedPosition += new Vector3(0.5f, 0, 0);
+                }
+                int objectIndex = structurePlacer.PlaceStructure(itemData.prefab, modifiedPosition, selectionResult.selectedPositionsObjectRotation[i], 0);
                 placementData.AddCellObject(objectIndex, itemData.ID, selectionResult.selectedGridPositions[i], itemData.size, Mathf.RoundToInt(selectionResult.selectedPositionGridCheckRotation[i].eulerAngles.y), selectionResult.selectedPositionsObjectRotation[0]);
                 Debug.Log("ARRAY ROTATION IS" + selectionResult.selectedPositionsObjectRotation[0]);
             }

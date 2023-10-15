@@ -15,6 +15,8 @@ public class SelectionData
     public bool PlacementValidity { set; get; }
 
     public Quaternion Rotation { set; get; } = Quaternion.identity;
+
+    public Quaternion OldRotation { set; get; } = Quaternion.identity;
     
 
     public SelectionData(ItemData placedItemData)

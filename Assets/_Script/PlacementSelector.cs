@@ -70,12 +70,34 @@ public class PlacementSelector
     }
 
     //Handlse the rotation (when player click , or . buttons)
-    public void HandleRotation(Quaternion rotationAmount)
+    public void HandleRotation(Quaternion rotationAmount, int rot)
     {
+        Debug.Log("rot amount " + rotationAmount + "with rot value of " + rot);
+        
+        /*switch(rot)
+        {
+            case -2:
+                rotationAmount = new Quaternion((float)0.00000, (float)-1.00000, (float)0.00000, (float)0.00000);
+                break;
+            case -1:
+                rotationAmount = new Quaternion((float)0.00000, (float)-0.70711, (float)0.00000, (float)0.70711);
+                break;
+            case 0:
+                rotationAmount = new Quaternion((float)0.00000, (float)0.00000, (float)0.00000, (float)1.00000);
+                break;
+            case 1:
+                rotationAmount = new Quaternion((float)0.00000, (float)0.70711, (float)0.00000, (float)0.70711);
+                break;
+            default:
+                Debug.Log("WTF!?");
+                break;
+        }*/
         selectionData.Rotation *= rotationAmount;
+        Debug.Log(selectionData.Rotation + " is selectrotate");
+
         selectionData.Rotation  = selectionStrategy.HandleRotation(selectionData.Rotation, selectionData);
         Refresh();
-        Debug.Log(selectionData.Rotation.eulerAngles);
+        Debug.Log("euler is " + selectionData.Rotation.eulerAngles);
     }
 
     /// <summary>

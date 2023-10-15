@@ -16,6 +16,8 @@ public abstract class BuildingState
     protected SelectionData selectionData;
     public SelectionData SelectionData => selectionData;
 
+    public int rot = 0;
+
     //To inform other objects about the changes in the selection or when we want to finish selectino
     //we will send those 2 events
     public Action<SelectionResult> OnFinished, OnSelectionChanged;
@@ -46,7 +48,16 @@ public abstract class BuildingState
     /// <param name="modifier"></param>
     public virtual void HandleRotation(int modifier)
     {
-        placementSelection.HandleRotation(Quaternion.Euler(0, 90 * modifier, 0));
+        Debug.Log("mod " + modifier);
+
+        rot += modifier;
+
+        if (rot > 1)
+            rot = -2;
+        if (rot < -2)
+            rot = 1;
+
+        placementSelection.HandleRotation(Quaternion.Euler(0, 90 * modifier, 0), rot);
         placementSelection.Refresh();
     }
 

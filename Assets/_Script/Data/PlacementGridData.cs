@@ -28,6 +28,27 @@ public class PlacementGridData : MonoBehaviour
         zGridBoundMin = zMin;
     }
 
+    ///<summary>
+    ///bing bong
+    ///</summary>
+    ///<param name="objectSize"></param>
+    ///<param name="rotation"></param>
+    ///<returns></returns>
+    public Vector2Int CalculateSizeOffset(Vector2Int objectSize, int rotation)
+    {
+        if (rotation == 0) //2,1
+            return objectSize;
+        if (rotation == 90) //1,-2
+            return new Vector2Int(objectSize.y, -objectSize.x);
+        if (rotation == 180) //-2,-1
+            return new Vector2Int(-objectSize.x, -objectSize.y);
+        if (rotation == 270) //-1,2
+            return new Vector2Int(-objectSize.y, objectSize.x);
+        return objectSize;
+    }
+
+    
+
     /// <summary>
     /// Checks if the given positions are apty in our grid
     /// </summary>
@@ -45,7 +66,7 @@ public class PlacementGridData : MonoBehaviour
         }
         else
         {
-            List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
+            List<Vector3Int> positionsToOccupy = GetCellPositionsNewRotation(currentTilePosition, objectSize, rotation);
             return gridCellsDictionary.Keys.Any(pos => positionsToOccupy.Any(x => x == pos)) == false;
         }
         
@@ -68,7 +89,7 @@ public class PlacementGridData : MonoBehaviour
         }
         else
         {
-            List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
+            List<Vector3Int> positionsToOccupy = GetCellPositionsNewRotation(currentTilePosition, objectSize, rotation);
             return positionsToOccupy.All(pos => gridCellsDictionary.Keys.Contains(pos));
         }
 
@@ -92,10 +113,63 @@ public class PlacementGridData : MonoBehaviour
         }
         else
         {
-            List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
+            List<Vector3Int> positionsToOccupy = GetCellPositionsNewRotation(currentTilePosition, objectSize, rotation);
             //If one position is invalid the Any returns tru so the method returns false
             return positionsToOccupy.Any(pos => IsCellAt(pos) == false) == false;
         }
+    }
+
+
+    /// <summary>
+    /// Allows us to find the cell positions recquired for an item or certain size to be placed here
+    /// startng at the currentTileposition and going in the direction (towards Bottom-Right, Top-Left or any other way)
+    /// based on the rotation.
+    /// </summary>
+    /// <param name="currentTilePosition"></param>
+    /// <param name="objectSize"></param>
+    /// <param name="rotation"></param>
+    /// <returns></returns>
+    public List<Vector3Int> GetCellPositionsNewRotation(Vector3Int currentTilePosition, Vector2Int objectSize, int rotation)
+    {
+        IEnumerable<int> xRange = null;
+        IEnumerable<int> zRange = null;
+        objectSize = CalculateSizeOffset(objectSize, rotation);
+        if (rotation == 0)
+        {
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.y - 1, 1);
+        }
+        else if (rotation == 90)
+        {
+            //objectSize = new Vector2Int(objectSize.y, objectSize.x);
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
+            //-1 because we move the placement up 1 cell due to rotation
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
+        }
+        else if (rotation == 180)
+        {
+            //-1 because this rotation moves the selected position up and to the right
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.x + 1, 0, 1);
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
+        }
+        else if (rotation == 270)
+        {
+            //objectSize = new Vector2Int(objectSize.y, objectSize.x);
+            //-1 because the rotation causes the selected cell to be moved to the right
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.x + 1, 0, 1);
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.y - 1, 1);
+        }
+
+        List<Vector3Int> positions = new List<Vector3Int>();
+        foreach (int x in xRange)
+        {
+            foreach (int z in zRange)
+            {
+                Vector3Int offset = new Vector3Int(x, 0, z);
+                positions.Add(currentTilePosition + offset);
+            }
+        }
+        return positions;
     }
 
     /// <summary>
@@ -260,7 +334,7 @@ public class PlacementGridData : MonoBehaviour
         }
 
         Debug.Log("Lets get this add cell object party started");
-        List<Vector3Int> positionsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
+        List<Vector3Int> positionsToOccupy = GetCellPositionsNewRotation(currentTilePosition, objectSize, rotation);
         PlacedCellObjectData data = new(index, ID, positionsToOccupy, currentTilePosition, rot);
         foreach (Vector3Int pos in positionsToOccupy)
         {
@@ -448,7 +522,7 @@ public class PlacementGridData : MonoBehaviour
     internal bool IsSpaceOccupiedByEdgeObject(Vector3Int currentTilePosition, Vector2Int objectSize, int rotation, bool edgePlacement)
     {
         HashSet<Edge> edges = new();
-        List<Vector3Int> cellsToOccupy = GetCellPositions(currentTilePosition, objectSize, rotation);
+        List<Vector3Int> cellsToOccupy = GetCellPositionsNewRotation(currentTilePosition, objectSize, rotation);
         foreach (var cellPosition in cellsToOccupy)
         {
             //Algorithm that gets all the edges that the placed object crosses (possible walls)

@@ -25,6 +25,8 @@ public class InputManager : MonoBehaviour
 
     public event Action<bool> OnToggleDelete;
 
+    public int rot = 0;
+
     public Vector3 GetSelectedMapPosition()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -45,8 +47,8 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             OnCancle?.Invoke();
-        if(Input.GetKeyDown(KeyCode.R))
-            OnUndo?.Invoke();
+        //if(Input.GetKeyDown(KeyCode.R))
+            //OnUndo?.Invoke();
 
         if (Input.GetMouseButtonDown(0))
             OnMousePressed?.Invoke();

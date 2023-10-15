@@ -58,6 +58,7 @@ public abstract class SelectionStrategy
     /// <returns></returns>
     public virtual Quaternion HandleRotation(Quaternion rotation, SelectionData selectionData)
     {
+        Debug.Log("rot is " + rotation + " and data is " + selectionData);
         return rotation;
     }
 

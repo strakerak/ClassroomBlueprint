@@ -73,7 +73,7 @@ public static class PlacementValidator
         {
             //It realy doesnt matter that we are using "wall placement data" to select those. Those are the same for any PlacementGridData as
             //those are calculated
-            List<Vector3Int> cellsToOccupy = placementData.GetCellPositions(pos, objectSize, rotationEulerY);
+            List<Vector3Int> cellsToOccupy = placementData.GetCellPositionsNewRotation(pos, objectSize, rotationEulerY);
             foreach (var cellPosition in cellsToOccupy)
             {
                 //Algorithm that gets all the edges that the placed object crosses (possible walls)
