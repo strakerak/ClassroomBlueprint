@@ -30,11 +30,19 @@ public class SaveAndLoad : MonoBehaviour
     public GameObject saveNameCanvas;
 
     [SerializeField]
+    public GameObject loadNameCanvas;
+
+    [SerializeField]
     public TMP_InputField saveNameText;
+
+    [SerializeField]
+    public TMP_InputField loadNameText;
 
     BuildingState buildingState;
 
     public string saveName = "";
+
+    public string loadName = "";
 
 
     public void saveMap()
@@ -89,6 +97,19 @@ public class SaveAndLoad : MonoBehaviour
         saveCanvas.SetActive(false);
     }
     
+    public void selectName()
+    {
+        loadNameCanvas.SetActive(true);
+    }
+
+    public void setLoadName()
+    {
+        loadName = loadNameText.text;
+        StaticData.dataToPass = loadName;
+        SceneManager.LoadScene("ViewerSystem");
+
+    }
+
     public void loadMap()
     {
         Debug.Log("Clearing Map");
