@@ -59,6 +59,16 @@ public class SaveAndLoad : MonoBehaviour
         }
     }
 
+    public void closeLoader()
+    {
+        loadNameCanvas.SetActive(false);
+    }
+
+    public void closeSaver()
+    {
+        saveNameCanvas.SetActive(false);
+    }
+
     private bool WriteToFile(string name, string content)
     {
         string path = "SaveFiles/";
