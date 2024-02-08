@@ -51,7 +51,7 @@ public class FPCameraMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && GameObject.Find("FPVParent(Clone)") != null)
         {
-            /*Debug.Log("Camera work");
+            Debug.Log("Camera work");
             GameObject go = GameObject.Find("FPVParent(Clone)");
             GameObject mc = GameObject.Find("GeneralObjects");
             if (first == false)
@@ -73,7 +73,7 @@ public class FPCameraMovement : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 first = false;
                 canMove = false;
-            }*/
+            }
             Debug.Log("Nuh uh uh!");
         }
 

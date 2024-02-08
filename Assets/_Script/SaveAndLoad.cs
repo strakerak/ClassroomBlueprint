@@ -27,6 +27,9 @@ public class SaveAndLoad : MonoBehaviour
     public GameObject saveCanvas;
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     public GameObject saveNameCanvas;
 
     [SerializeField]
@@ -107,6 +110,16 @@ public class SaveAndLoad : MonoBehaviour
         saveCanvas.SetActive(false);
     }
     
+    public void noHelp()
+    {
+        helpCanvas.SetActive(false);
+    }
+
+    public void helpMe()
+    {
+        helpCanvas.SetActive(true);
+    }
+
     public void selectName()
     {
         loadNameCanvas.SetActive(true);
