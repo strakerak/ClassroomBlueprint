@@ -41,6 +41,9 @@ public class SaveAndLoad : MonoBehaviour
     [SerializeField]
     public TMP_InputField loadNameText;
 
+    [SerializeField]
+    public GameObject welcomeCanvas;
+
     BuildingState buildingState;
 
     public string saveName = "";
@@ -59,6 +62,14 @@ public class SaveAndLoad : MonoBehaviour
         {
             saveCanvas.SetActive(true);
             Debug.Log("Save success! Saved as " + saveName);
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && GameObject.Find("welcome"))
+        {
+            killWelcome();
         }
     }
 
@@ -97,6 +108,11 @@ public class SaveAndLoad : MonoBehaviour
     {
         saveName = saveNameText.text;
         setSaveName();
+    }
+
+    public void killWelcome()
+    {
+        welcomeCanvas.SetActive(false);
     }
 
     public void setSaveName()
