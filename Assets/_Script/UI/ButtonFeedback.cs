@@ -18,6 +18,12 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Color highlightColor, clickedColor;
 
     [SerializeField]
+    public TMPro.TMP_Text itemText;
+
+    [SerializeField]
+    public string itemName;
+
+    [SerializeField]
     private float fadeDuration = 0.1f;
 
     bool selected = false;
@@ -50,6 +56,7 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData eventData)
     {
         button.image.DOColor(highlightColor, fadeDuration);
+        itemText.text = itemName;
         //transform.DOScale(scaleUpValue, fadeDuration);
     }
 
@@ -58,6 +65,7 @@ public class ButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (selected)
             return;
         button.image.DOColor(defaultColor, fadeDuration);
+        itemText.text = "Item Name";
         //button.transform.DOScale(Vector3.one, fadeDuration);
     }
 
