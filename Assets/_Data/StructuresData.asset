@@ -93,7 +93,7 @@ MonoBehaviour:
   - name: KitchenSinkParent
     ID: 10
     size: {x: 1, y: 1}
-    objectPlacementType: 4
+    objectPlacementType: 5
     prefab: {fileID: 3128097552613286756, guid: c9e3ae9ecee90b24fb441381c028ac9d,
       type: 3}
     previewObject: {fileID: 3128097552613286756, guid: c9e3ae9ecee90b24fb441381c028ac9d,

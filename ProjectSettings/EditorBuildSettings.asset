@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: bdb37e7ad88479b4b80ce55f9bc637d8
+  - enabled: 1
     path: Assets/Scenes/PlacementSystem.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/ViewerSystem.unity
     guid: 214edb5144452d3408daf6e1675dad60
+  - enabled: 1
+    path: Assets/Scenes/VRPlacementSystem.unity
+    guid: 17aa3a2fcb1ba124d9c5a460bf658eaa
+  - enabled: 1
+    path: Assets/Scenes/VRViewerSystem.unity
+    guid: c10095083f3faa845831cb3bd7fcc387
   m_configObjects: {}
