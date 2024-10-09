@@ -139,6 +139,13 @@ public class PlacementGridData : MonoBehaviour
             xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
             zRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.y - 1, 1);
         }
+        else if (rotation == 45)
+        {
+            //objectSize = new Vector2Int(objectSize.y, objectSize.x);
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
+            //-1 because we move the placement up 1 cell due to rotation
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
+        }
         else if (rotation == 90)
         {
             //objectSize = new Vector2Int(objectSize.y, objectSize.x);
@@ -146,12 +153,25 @@ public class PlacementGridData : MonoBehaviour
             //-1 because we move the placement up 1 cell due to rotation
             zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
         }
+        /*else if (rotation == 135)
+        {
+            //objectSize = new Vector2Int(objectSize.y, objectSize.x);
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
+            //-1 because we move the placement up 1 cell due to rotation
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
+        }*/
         else if (rotation == 180)
         {
             //-1 because this rotation moves the selected position up and to the right
             xRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.x + 1, 0, 1);
             zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
         }
+        /*else if (rotation == 225)
+        {
+            //-1 because this rotation moves the selected position up and to the right
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.x + 1, 0, 1);
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
+        }*/
         else if (rotation == 270)
         {
             //objectSize = new Vector2Int(objectSize.y, objectSize.x);
@@ -159,6 +179,13 @@ public class PlacementGridData : MonoBehaviour
             xRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.x + 1, 0, 1);
             zRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.y - 1, 1);
         }
+        /*else if (rotation == 315)
+        {
+            //objectSize = new Vector2Int(objectSize.y, objectSize.x);
+            //-1 because the rotation causes the selected cell to be moved to the right
+            xRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.x + 1, 0, 1);
+            zRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.y - 1, 1);
+        }*/
 
         List<Vector3Int> positions = new List<Vector3Int>();
         foreach (int x in xRange)

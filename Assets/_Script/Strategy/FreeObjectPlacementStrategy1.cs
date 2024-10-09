@@ -34,15 +34,32 @@ public class FreeObjectPlacementStrategy1 : SelectionStrategy
             selectionData.Clear();
             selectionData.OldRotation = selectionData.Rotation;
             Vector3 modifiedPosition = gridManager.GetWorldPosition(lastDetectedPosition.GetPosition());
-            if (selectionData.Rotation.eulerAngles.y == 90)
+            if (selectionData.Rotation.eulerAngles.y == 45)
+            {
+                selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0, 0, 0.5f));
+            }
+            else if (selectionData.Rotation.eulerAngles.y == 90)
+            {
+                selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0, 0, 0.5f));
+            }
+            else if (selectionData.Rotation.eulerAngles.y == 135)
             {
                 selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0, 0, 0.5f));
             }
             else if (selectionData.Rotation.eulerAngles.y == 180)
             {
                 selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0.5f, 0, 0.5f));
+            }else if (selectionData.Rotation.eulerAngles.y == 225)
+            {
+                selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0.5f, 0, 0.5f));
             }
             else if (selectionData.Rotation.eulerAngles.y == 270)
+            {
+                selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0.5f, 0, 0));
+            }else if (selectionData.Rotation.eulerAngles.y == 315)
+            {
+                selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0.5f, 0, 0));
+            }else if (selectionData.Rotation.eulerAngles.y == 360)
             {
                 selectionData.AddToPreviewPositions(modifiedPosition + new Vector3(0.5f, 0, 0));
             }
