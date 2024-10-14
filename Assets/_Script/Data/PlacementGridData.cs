@@ -139,13 +139,13 @@ public class PlacementGridData : MonoBehaviour
             xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
             zRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.y - 1, 1);
         }
-        else if (rotation == 45)
+        /*else if (rotation == 45)
         {
             //objectSize = new Vector2Int(objectSize.y, objectSize.x);
             xRange = GridSelectionHelper.MoveMinToMaxInclusive(0, objectSize.x - 1, 1);
             //-1 because we move the placement up 1 cell due to rotation
             zRange = GridSelectionHelper.MoveMinToMaxInclusive(objectSize.y + 1, 0, 1);
-        }
+        }*/
         else if (rotation == 90)
         {
             //objectSize = new Vector2Int(objectSize.y, objectSize.x);

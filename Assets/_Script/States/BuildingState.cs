@@ -52,20 +52,20 @@ public abstract class BuildingState
 
         rot += modifier;
 
-        /*if (rot > 1)
+        if (rot > 1)
             rot = -2;
         if (rot < -2)
-            rot = 1;*/
+            rot = 1;
 
         
-        if (rot > 6)
+        /*if (rot > 6)
             rot = -2;
         if (rot < -2)
-            rot = 6;
+            rot = 6;*/
         
 
-        //placementSelection.HandleRotation(Quaternion.Euler(0, 90 * modifier, 0), rot);
-        placementSelection.HandleRotation(Quaternion.Euler(0, 45*modifier, 0) ,rot);
+        placementSelection.HandleRotation(Quaternion.Euler(0, 90 * modifier, 0), rot);
+        //placementSelection.HandleRotation(Quaternion.Euler(0, 45*modifier, 0) ,rot);
         placementSelection.Refresh();
     }
 
