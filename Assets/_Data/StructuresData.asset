@@ -242,3 +242,43 @@ MonoBehaviour:
       type: 3}
     previewObject: {fileID: 4428052050468720457, guid: c0d0d035048cb0a40917742a72a88d63,
       type: 3}
+  - name: MapParent
+    ID: 28
+    size: {x: 0, y: 0}
+    objectPlacementType: 5
+    prefab: {fileID: 6279952519052679450, guid: f384d26f1cd219b4ca3aa0f729dbd50c,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: f384d26f1cd219b4ca3aa0f729dbd50c,
+      type: 3}
+  - name: StoolParent
+    ID: 32
+    size: {x: 1, y: 1}
+    objectPlacementType: 5
+    prefab: {fileID: 4428052050468720457, guid: 1bd025e6d6c457e468e12ada2fa93ba7,
+      type: 3}
+    previewObject: {fileID: 4428052050468720457, guid: 1bd025e6d6c457e468e12ada2fa93ba7,
+      type: 3}
+  - name: CalendarParent
+    ID: 29
+    size: {x: 0, y: 0}
+    objectPlacementType: 5
+    prefab: {fileID: 6279952519052679450, guid: a250f06b6bedca04eb8d35e37f84d4b7,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: a250f06b6bedca04eb8d35e37f84d4b7,
+      type: 3}
+  - name: ClockParent
+    ID: 30
+    size: {x: 0, y: 0}
+    objectPlacementType: 5
+    prefab: {fileID: 6279952519052679450, guid: 15957c1b146759c48a6a8f6d1b26a18c,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: 15957c1b146759c48a6a8f6d1b26a18c,
+      type: 3}
+  - name: PocketChartParent
+    ID: 31
+    size: {x: 0, y: 0}
+    objectPlacementType: 5
+    prefab: {fileID: 6279952519052679450, guid: 966e7d16ce4f870458e4145ddc5ae223,
+      type: 3}
+    previewObject: {fileID: 6279952519052679450, guid: 966e7d16ce4f870458e4145ddc5ae223,
+      type: 3}
