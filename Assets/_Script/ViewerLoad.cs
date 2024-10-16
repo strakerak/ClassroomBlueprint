@@ -99,6 +99,8 @@ public class ViewerLoad : MonoBehaviour
         Debug.Log("Starting Load");
         List<string> lines = new List<string>();
         saveName = StaticData.dataToPass;
+        string jsonString = PlayerPrefs.GetString(saveName);
+        pgd.gridCellsDictionary = JsonUtility.FromJson<Dictionary<Vector3Int, PlacedCellObjectData>>(jsonString);
         lines = loadData(saveName);
         Debug.Log("Load complete? Now trying to place");
         for (int i = 0; i < lines.Count; i++)

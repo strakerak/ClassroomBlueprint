@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 
 public class SaveAndLoad : MonoBehaviour
@@ -90,6 +91,10 @@ public class SaveAndLoad : MonoBehaviour
         try
         {
             File.WriteAllText(path + name, content);
+            Debug.Log(pgd.gridCellsDictionary);
+            string json = JsonUtility.ToJson(pgd.gridCellsDictionary);
+            PlayerPrefs.SetString("name", json);
+            PlayerPrefs.Save();
             return true;
         }
         catch (Exception e)

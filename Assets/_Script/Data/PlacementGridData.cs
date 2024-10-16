@@ -14,8 +14,8 @@ using UnityEngine;
 /// </summary>
 public class PlacementGridData : MonoBehaviour
 {
-    Dictionary<Vector3Int, PlacedCellObjectData> gridCellsDictionary;
-    Dictionary<Edge, PlacedEdgeObjectData> gridEdgesDictionary;
+    public Dictionary<Vector3Int, PlacedCellObjectData> gridCellsDictionary;
+    public Dictionary<Edge, PlacedEdgeObjectData> gridEdgesDictionary;
 
     int xGridBoundMin, xGridBoundMax, zGridBoundMin, zGridBoundMax;
     public PlacementGridData(int xMin, int xMax, int zMin, int zMax)
