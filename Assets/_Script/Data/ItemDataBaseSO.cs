@@ -51,6 +51,7 @@ public class ItemData
     //all we would have to do is find an item with a give ID, read its data and place it back on the map
     public int ID;
     public Vector2Int size;
+    public Vector2Int diagSize;
     public PlacementType objectPlacementType;
     public GameObject prefab;
     [Tooltip("If empty will be set to prefab object")]
