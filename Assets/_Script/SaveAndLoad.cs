@@ -299,4 +299,9 @@ public class SaveAndLoad : MonoBehaviour
         pm.clearMap();
         SceneManager.LoadScene("PlacementSystem");
     }
+
+    public void quitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

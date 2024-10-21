@@ -50,11 +50,6 @@ public class FPCameraMovement : MonoBehaviour
             gameObject.transform.position = new Vector3(transform.position.x, 0.03f, transform.position.z);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-
 
 
         if (Input.GetKeyDown(KeyCode.F) && GameObject.Find("FPVParent(Clone)") != null)
