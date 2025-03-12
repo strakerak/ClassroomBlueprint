@@ -16,6 +16,7 @@ MonoBehaviour:
   - name: WallParent
     ID: 0
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 2
     prefab: {fileID: 454405300934370620, guid: 16bfb3862f6e6704f854cdb58d709081, type: 3}
     previewObject: {fileID: 5023585483840505682, guid: 194b2597d523bd04d91c0b228bd173e5,
@@ -23,6 +24,7 @@ MonoBehaviour:
   - name: FloorParent
     ID: 1
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 1
     prefab: {fileID: 175886647813805099, guid: 6bafb9556d35ba840bebea4eea7d34c2, type: 3}
     previewObject: {fileID: 175886647813805099, guid: 6bafb9556d35ba840bebea4eea7d34c2,
@@ -30,6 +32,7 @@ MonoBehaviour:
   - name: WallWindowParent
     ID: 2
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 3
     prefab: {fileID: 200308021796249705, guid: 69d526bb2e0558a44945047260e08658, type: 3}
     previewObject: {fileID: 200308021796249705, guid: 69d526bb2e0558a44945047260e08658,
@@ -37,6 +40,7 @@ MonoBehaviour:
   - name: WallDoorParent
     ID: 3
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 3
     prefab: {fileID: 4180586168491985918, guid: b5dbef82417fa2c4687cae1138f12494,
       type: 3}
@@ -45,6 +49,7 @@ MonoBehaviour:
   - name: BigBedParent
     ID: 4
     size: {x: 2, y: 2}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
       type: 3}
@@ -53,6 +58,7 @@ MonoBehaviour:
   - name: BedSmallParent
     ID: 5
     size: {x: 1, y: 2}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 5850475931862319619, guid: 9ff0a40e81c213747b2c254c44aaeadd,
       type: 3}
@@ -61,6 +67,7 @@ MonoBehaviour:
   - name: ChairParent
     ID: 6
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4428052050468720457, guid: e033e50487fb016449143cd70d837387,
       type: 3}
@@ -69,6 +76,7 @@ MonoBehaviour:
   - name: TableParent
     ID: 7
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3493615974341626966, guid: c8183485a28237d4385a3c7ef8659faa,
       type: 3}
@@ -77,6 +85,7 @@ MonoBehaviour:
   - name: FridgeParent
     ID: 8
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 4
     prefab: {fileID: 4344590435354947618, guid: 52be3717e97d1b64c9d5f3ae6558791f,
       type: 3}
@@ -85,6 +94,7 @@ MonoBehaviour:
   - name: KitchenCabinetParent
     ID: 9
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 8268923537045151292, guid: fbadd4c5d23c14b4588dd8a9a86e5e26,
       type: 3}
@@ -93,6 +103,7 @@ MonoBehaviour:
   - name: KitchenSinkParent
     ID: 10
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3128097552613286756, guid: c9e3ae9ecee90b24fb441381c028ac9d,
       type: 3}
@@ -101,6 +112,7 @@ MonoBehaviour:
   - name: ToiletParent
     ID: 11
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 4
     prefab: {fileID: 7057042017470530667, guid: c038690cb6e5905429e13c35460e2199,
       type: 3}
@@ -109,6 +121,7 @@ MonoBehaviour:
   - name: BathroomSinkParent
     ID: 12
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 4
     prefab: {fileID: 6279952519052679450, guid: d2e060f6cbe9a594cb7b3d589eaf77ff,
       type: 3}
@@ -117,6 +130,7 @@ MonoBehaviour:
   - name: DeskParent
     ID: 13
     size: {x: 3, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3265483231859302708, guid: 09362289c70e84246ae4c36491feb8a5,
       type: 3}
@@ -125,6 +139,7 @@ MonoBehaviour:
   - name: StudentDeskParent
     ID: 14
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3265483231859302708, guid: 7816713e4cdf2a64ca1956545768caff,
       type: 3}
@@ -133,6 +148,7 @@ MonoBehaviour:
   - name: CubbyParent
     ID: 15
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3265483231859302708, guid: 9e098c7178054ea4d8da8d4badc9d952,
       type: 3}
@@ -141,6 +157,7 @@ MonoBehaviour:
   - name: CircleTableParent
     ID: 16
     size: {x: 2, y: 2}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3265483231859302708, guid: d806963bef266dc4ca843faa4aecbfbf,
       type: 3}
@@ -149,6 +166,7 @@ MonoBehaviour:
   - name: TVParent
     ID: 17
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 7057042017470530667, guid: 6afb04d79bd334c42ac1f3e670a82e39,
       type: 3}
@@ -157,6 +175,7 @@ MonoBehaviour:
   - name: FileCabinetParent
     ID: 18
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4344590435354947618, guid: cdbd736715e0fe24b93ca8518f700ded,
       type: 3}
@@ -165,6 +184,7 @@ MonoBehaviour:
   - name: ComputerDeskParent
     ID: 19
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3493615974341626966, guid: ef343e854338c7f4c8a2d99f6a7bb4c1,
       type: 3}
@@ -173,6 +193,7 @@ MonoBehaviour:
   - name: RugParent
     ID: 20
     size: {x: 3, y: 3}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 1
     prefab: {fileID: 3265483231859302708, guid: fa4c041d5d458b64bbb50e5a2d5bf96d,
       type: 3}
@@ -181,6 +202,7 @@ MonoBehaviour:
   - name: WhiteboardParent
     ID: 21
     size: {x: 4, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: 3d82b7d6a6638ff4296a654e08920336,
       type: 3}
@@ -189,6 +211,7 @@ MonoBehaviour:
   - name: ArtStationParent
     ID: 22
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 7057042017470530667, guid: 1342e4adfa7b6b54983bb82751565139,
       type: 3}
@@ -197,6 +220,7 @@ MonoBehaviour:
   - name: PlaystationParent
     ID: 23
     size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 3265483231859302708, guid: 90905f14f8a63df4ab0cde65634b889c,
       type: 3}
@@ -205,6 +229,7 @@ MonoBehaviour:
   - name: PosterParent
     ID: 24
     size: {x: 1, y: 2}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: b93fa99d7a73d754ebbd798145f15443,
       type: 3}
@@ -213,6 +238,7 @@ MonoBehaviour:
   - name: BouncyChairParent
     ID: 25
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4428052050468720457, guid: 5aa47eb07ecddeb42876754d9c123928,
       type: 3}
@@ -221,6 +247,7 @@ MonoBehaviour:
   - name: TrashCanParent
     ID: 26
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4428052050468720457, guid: 6fba477a4919ae94ab3781b70c0ab058,
       type: 3}
@@ -229,6 +256,7 @@ MonoBehaviour:
   - name: Nuker
     ID: 100
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4428052050468720457, guid: 691a946a0bb191b4da4ca352f540a8e0,
       type: 3}
@@ -237,6 +265,7 @@ MonoBehaviour:
   - name: FPVParent
     ID: 99
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4428052050468720457, guid: 46e738557837e33458e897ca29753192,
       type: 3}
@@ -244,7 +273,8 @@ MonoBehaviour:
       type: 3}
   - name: MapParent
     ID: 28
-    size: {x: 0, y: 0}
+    size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: f384d26f1cd219b4ca3aa0f729dbd50c,
       type: 3}
@@ -253,6 +283,7 @@ MonoBehaviour:
   - name: StoolParent
     ID: 32
     size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 4428052050468720457, guid: 1bd025e6d6c457e468e12ada2fa93ba7,
       type: 3}
@@ -260,7 +291,8 @@ MonoBehaviour:
       type: 3}
   - name: CalendarParent
     ID: 29
-    size: {x: 0, y: 0}
+    size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: a250f06b6bedca04eb8d35e37f84d4b7,
       type: 3}
@@ -268,7 +300,8 @@ MonoBehaviour:
       type: 3}
   - name: ClockParent
     ID: 30
-    size: {x: 0, y: 0}
+    size: {x: 1, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: 15957c1b146759c48a6a8f6d1b26a18c,
       type: 3}
@@ -276,7 +309,8 @@ MonoBehaviour:
       type: 3}
   - name: PocketChartParent
     ID: 31
-    size: {x: 0, y: 0}
+    size: {x: 2, y: 1}
+    diagSize: {x: 0, y: 0}
     objectPlacementType: 5
     prefab: {fileID: 6279952519052679450, guid: 966e7d16ce4f870458e4145ddc5ae223,
       type: 3}
